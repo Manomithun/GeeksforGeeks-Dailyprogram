@@ -1,16 +1,23 @@
 class Solution {
     public int getSecondLargest(int[] arr) {
         // Code Here
-        Arrays.sort(arr);
-        int t=-1;
-        int t1=-1;
-        for(int i=0;i<arr.length;i++){
-            if(arr[i]>t){
-                t1=t;
-                t=arr[i];
-                
+        int n = arr.length;
+
+        int l = -1, secondL = -1;
+
+    
+        for (int i = 0; i < n; i++) {
+
+           
+            if(arr[i] > l) {
+                secondL = l;
+                l = arr[i];
+            }
+          
+            else if(arr[i] < l && arr[i] > secondL) {
+                secondL = arr[i];
             }
         }
-       return t1;
+        return secondL;
     }
 }
